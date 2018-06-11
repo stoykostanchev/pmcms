@@ -18,6 +18,7 @@
     "typegoose": "^5.2.1"
   },
   "devDependencies": {
+    "@types/express": "^4.16.0",
     "@types/mongoose": "^5.0.15",
     "forms-angular": "^0.12.0-beta.7",
     "forms-mongoose": "0.0.6",

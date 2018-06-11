@@ -1,14 +1,17 @@
-// import { prop, Typegoose, ModelType, InstanceType } from 'typegoose';
+import { Http2ServerResponse } from "http2";
+
+import { prop, Typegoose, ModelType, InstanceType } from 'typegoose';
 // import * as mongoose from 'mongoose';
 
 // mongoose.connect('mongodb://localhost:27017/test');
 
-// class User extends Typegoose {
-//   @prop()
-//   name?: string;
-// }
+class User extends Typegoose {
+  @prop()
+  surname?: string;
+}
 
-// const UserModel = new User().getModelForClass(User);
+const UserModel = new User().getModelForClass(User);
+console.log(UserModel.modelName)
 
 // ------------------ FORMS ------------------------------
 
@@ -36,18 +39,18 @@ app.use(methodOverride());
 var DataFormHandler = new (formsAngular)(mongoose, app, {urlPrefix: '/api/'});
 
 // This sets up all the /api/ routes
-var fs = require('fs');
-fs.readdirSync('models').forEach(function (file) {
-  if (fs.statSync('models/' + file).isFile()) {
-    DataFormHandler.newResource(require('./models/' + file));
-  }
-});
+// var fs = require('fs');
+// fs.readdirSync('models').forEach(function (file) {
+//   if (fs.statSync('models/' + file).isFile()) {
+//     DataFormHandler.newResource(require('./models/' + file));
+//   }
+// });
 
-// DataFormHandler.newResource(AddressModel);
+DataFormHandler.newResource(UserModel);
 
 // Anything we haven't already told Express about redirects to index.html and starts Angular
-app.get(function(req, res) {
-  res.sendfile('./app/index.html');
+app.get(function(req: Express.Request, res: Express.Response) {
+  (<any>res).sendFile('./app/index.html');
 });
 
 // Wait for the user
