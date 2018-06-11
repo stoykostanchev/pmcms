@@ -22,6 +22,7 @@
     "@types/mongoose": "^5.0.15",
     "forms-angular": "^0.12.0-beta.7",
     "forms-mongoose": "0.0.6",
-    "mongoose-forms": "0.0.5"
+    "mongoose-forms": "0.0.5",
+    "typescript-json-schema": "^0.24.1"
   }
 }

@@ -1,0 +1,74 @@
+{
+  "type": "object",
+  "properties": {
+    "AUTH_CHECK": {
+      "type": "boolean"
+    },
+    "AWAY_SCREEN": {
+      "type": "boolean"
+    },
+    "CONTENT_GENRES_FILTER": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/IContentGenreFilter"
+        },
+        {
+          "type": "boolean"
+        }
+      ]
+    },
+    "GLOBAL_INITIAL_VIDEO_AD": {
+      "type": "boolean"
+    },
+    "POWERED_BY_LOGO": {
+      "type": "boolean"
+    },
+    "LICENCE_CHECK": {
+      "type": "boolean"
+    },
+    "CAPACITY_CHECK": {
+      "type": "boolean"
+    },
+    "STICKY_FOOTER": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "DELAY": {
+              "type": "number"
+            }
+          }
+        },
+        {
+          "type": "boolean"
+        }
+      ]
+    },
+    "MENU_MODAL": {
+      "type": "boolean"
+    },
+    "BROWSER_DRM": {
+      "type": "boolean"
+    },
+    "BACK_TO_APP_BTN": {
+      "type": "boolean"
+    },
+    "AGE_CHECK": {
+      "type": "boolean"
+    }
+  },
+  "definitions": {
+    "IContentGenreFilter": {
+      "type": "object",
+      "properties": {
+        "movies": {
+          "type": "boolean"
+        },
+        "tv": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-06/schema#"
+}
