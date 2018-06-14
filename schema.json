@@ -1,63 +1,360 @@
 {
+  "description": "Description of the IConfig interface",
   "type": "object",
   "properties": {
-    "AUTH_CHECK": {
-      "type": "boolean"
+    "HARDCODED_ITEM_OWNERS": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
     },
-    "AWAY_SCREEN": {
-      "type": "boolean"
-    },
-    "CONTENT_GENRES_FILTER": {
-      "anyOf": [
-        {
-          "$ref": "#/definitions/IContentGenreFilter"
-        },
-        {
-          "type": "boolean"
-        }
-      ]
-    },
-    "GLOBAL_INITIAL_VIDEO_AD": {
-      "type": "boolean"
-    },
-    "POWERED_BY_LOGO": {
-      "type": "boolean"
-    },
-    "LICENCE_CHECK": {
-      "type": "boolean"
-    },
-    "CAPACITY_CHECK": {
-      "type": "boolean"
-    },
-    "STICKY_FOOTER": {
-      "anyOf": [
-        {
-          "type": "object",
-          "properties": {
-            "DELAY": {
-              "type": "number"
+    "ADS_CFG": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "oneColumn": {
+            "type": "object",
+            "properties": {
+              "sizeLimit": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "shouldPlace": {
+                "type": "string"
+              },
+              "containerClass": {
+                "type": "string"
+              }
+            }
+          },
+          "twoColumn": {
+            "type": "object",
+            "properties": {
+              "sizeLimit": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "shouldPlace": {
+                "type": "string"
+              }
+            }
+          },
+          "threeColumn": {
+            "type": "object",
+            "properties": {
+              "sizeLimit": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "shouldPlace": {
+                "type": "string"
+              }
+            }
+          },
+          "flb": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "red": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "sky": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "mde": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "nex": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
             }
           }
+        }
+      }
+    },
+    "ALLOW_INAPP_BROWSING_DOMAINS": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "IMGS": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "CLIENT_LOGO": {
+      "type": "string"
+    },
+    "MAIN_NAV_BACKGROUND": {
+      "type": "string"
+    },
+    "APP": {
+      "$ref": "#/definitions/IAppDetails"
+    },
+    "CHANNELS": {
+      "$ref": "#/definitions/IChannelsConf"
+    },
+    "COMPONENTS": {
+      "type": "object",
+      "properties": {
+        "PODCAST": {
+          "type": "object",
+          "properties": {
+            "messages": {
+              "type": "object",
+              "properties": {
+                "err": {
+                  "type": "string"
+                },
+                "takingTime": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "PAGES": {
+      "type": "object",
+      "properties": {
+        "TRAVEL_PAGE": {
+          "type": "object",
+          "properties": {
+            "TAB_TITLE": {
+              "type": "string"
+            },
+            "ENABLED": {
+              "type": "boolean"
+            },
+            "OWN_MENU": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "CONTENT": {
+      "type": "object",
+      "properties": {
+        "DIRECT_PLAY": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "boolean"
+          }
         },
-        {
+        "STRETCHED_TILES": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "FUNCTIONALITIES": {
+      "$ref": "#/definitions/IFunctionalities"
+    },
+    "ADS": {
+      "type": "object",
+      "properties": {
+        "URLS": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "SHOW_ADS_ON_FEEDLIST": {
           "type": "boolean"
         }
-      ]
+      }
     },
-    "MENU_MODAL": {
-      "type": "boolean"
+    "AD_TYPES": {
+      "$ref": "#/definitions/IAdTypes"
     },
-    "BROWSER_DRM": {
-      "type": "boolean"
+    "FEED_ADS": {},
+    "TOP_MOVIE_GENRE": {
+      "type": "string"
     },
-    "BACK_TO_APP_BTN": {
-      "type": "boolean"
+    "TOP_MOVIE_ICON": {
+      "type": "string"
     },
-    "AGE_CHECK": {
-      "type": "boolean"
+    "PROVIDER_LOGOS": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "PRIMARY": {
+            "type": "string"
+          },
+          "SECONDARY": {
+            "type": "string"
+          }
+        }
+      }
     }
   },
   "definitions": {
+    "IAppDetails": {
+      "type": "object",
+      "properties": {
+        "APP_ID": {
+          "type": "string"
+        },
+        "APP_LINK": {
+          "type": "string"
+        },
+        "ALLOW_APP_STORE_POPUP": {
+          "type": "boolean"
+        },
+        "ALLOW_DOWNLOADS": {
+          "type": "boolean"
+        },
+        "COMPANY_NAME_SHORT": {
+          "type": "string"
+        },
+        "COMPANY_NAME": {
+          "type": "string"
+        },
+        "PRODUCT_NAME": {
+          "type": "string"
+        },
+        "WIFI_NETWORK_NAME": {
+          "type": "string"
+        },
+        "REG_FORM_LINK": {
+          "type": "string"
+        },
+        "REG_FORM_LINK_TEXT": {
+          "type": "string"
+        },
+        "PRODUCT_ROLL_DATE_STR": {
+          "type": "string"
+        },
+        "PRIVACY_POLICY_LINK": {
+          "type": "string"
+        },
+        "PRIVACY_POLICY_LINK_TEXT": {
+          "type": "string"
+        },
+        "PROD_URL": {
+          "type": "string"
+        },
+        "GTM": {
+          "type": "string"
+        },
+        "LICENSE_URLS": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "VERSION": {},
+        "HARDWARE": {
+          "type": "string"
+        },
+        "HARDWARE_LOGIN_DOMAIN": {
+          "type": "string"
+        },
+        "DEF_PAGE_OFFSET": {
+          "type": "number"
+        }
+      }
+    },
+    "IChannelsConf": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "DEF_GENRE": {
+            "type": "string"
+          },
+          "REMOVE_GENRE_ALL": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "IFunctionalities": {
+      "type": "object",
+      "properties": {
+        "AUTH_CHECK": {
+          "type": "boolean"
+        },
+        "AWAY_SCREEN": {
+          "type": "boolean"
+        },
+        "CONTENT_GENRES_FILTER": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IContentGenreFilter"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        },
+        "GLOBAL_INITIAL_VIDEO_AD": {
+          "type": "boolean"
+        },
+        "POWERED_BY_LOGO": {
+          "type": "boolean"
+        },
+        "LICENCE_CHECK": {
+          "type": "boolean"
+        },
+        "CAPACITY_CHECK": {
+          "type": "boolean"
+        },
+        "STICKY_FOOTER": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "DELAY": {
+                  "type": "number"
+                }
+              }
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        },
+        "MENU_MODAL": {
+          "type": "boolean"
+        },
+        "BROWSER_DRM": {
+          "type": "boolean"
+        },
+        "BACK_TO_APP_BTN": {
+          "type": "boolean"
+        },
+        "AGE_CHECK": {
+          "type": "boolean"
+        }
+      }
+    },
     "IContentGenreFilter": {
       "type": "object",
       "properties": {
@@ -66,6 +363,17 @@
         },
         "tv": {
           "type": "boolean"
+        }
+      }
+    },
+    "IAdTypes": {
+      "type": "object",
+      "properties": {
+        "GPT": {
+          "type": "string"
+        },
+        "INHOUSE": {
+          "type": "string"
         }
       }
     }
